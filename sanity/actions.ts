@@ -21,6 +21,7 @@ export const getResources = async (params: getResourcesParams) => {
       })}{
         title,
         _id,
+        resourceLink,
         "image": poster.asset->url,
         slug,
         category

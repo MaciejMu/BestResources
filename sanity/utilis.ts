@@ -7,16 +7,16 @@ type BuildQueryParams = {
 };
 
 export function buildQuery(params: BuildQueryParams) {
-  const { type, query, category, page, perPage = 1 } = params;
+  const { type, query, category, page = 1, perPage = 20 } = params;
 
-  const conditions = [`*[_type == "${type}"`];
+  const conditions = [`*[_type =="${type}"`];
 
   if (query) {
-    conditions.push(`title match ${query}*`);
+    conditions.push(`title match "*${query}*"`);
   }
 
   if (category && category !== "all") {
-    conditions.push(`category ${category}`);
+    conditions.push(`category == "${category}"`);
   }
 
   const offset = (page - 1) * perPage;

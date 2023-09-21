@@ -10,7 +10,19 @@ const schema = {
       require,
       validation: (Rule: any) => Rule.required(),
     },
-    { name: "slug", title: "Slug", type: "slug", options: { source: "title" } },
+    {
+      name: "resourceLink",
+      title: "Resource Link",
+      type: "string",
+      require,
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: { source: "title" },
+    },
     {
       name: "poster",
       title: "Poster",
