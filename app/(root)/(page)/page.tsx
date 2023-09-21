@@ -1,8 +1,17 @@
 import Filters from "@/components/Filters";
 import SearchForm from "@/components/SearchForm";
+import { getResources } from "@/sanity/actions";
 import React from "react";
 
-const page = () => {
+const Page = async () => {
+  const resources = await getResources({
+    query: "",
+    category: "",
+    page: "1",
+  });
+
+  console.log(resources);
+
   return (
     <main className="flex-center paddings mx-auto w-full max-w-screen-2xl flex-col">
       <section className="nav-padding w-full">
@@ -18,4 +27,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
