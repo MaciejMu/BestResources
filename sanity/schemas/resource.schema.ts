@@ -13,8 +13,8 @@ const schema = {
     {
       name: "resourceLink",
       title: "Resource Link",
-      type: "string",
       require,
+      type: "string",
       validation: (Rule: any) => Rule.required(),
     },
     {
@@ -36,7 +36,7 @@ const schema = {
       type: "string",
       validation: (Rule: any) => Rule.required(),
       options: {
-        list: ["frontend", "backend", "next 13", "fullstack", "other"],
+        list: ["frontend", "next 13", "fullstack", "other"],
       },
     },
   ],

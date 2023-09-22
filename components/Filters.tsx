@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { formUrlQuery } from "@/sanity/utilis";
 
-const links = ["all", "Next 13", "frontend", "backend", "fullstack"];
+const links = ["all", "Next 13", "frontend", "fullstack", "other"];
 
 const Filters = () => {
   const [active, setActive] = useState("");
@@ -17,13 +17,9 @@ const Filters = () => {
 
     if (active === link) {
       setActive("");
-      // newUrl = formUrlQuery({
-      //   params: searchParms.toString(),
-      //   keysToRemove: ["category"],
-      // });
       newUrl = formUrlQuery({
         params: searchParms.toString(),
-        key: "category",
+        keysToRemove: ["category"],
         value: null,
       });
     } else {
@@ -39,7 +35,7 @@ const Filters = () => {
   };
 
   return (
-    <ul className="text-white-800 body-text no-scrollbar flex w-full max-w-full gap-2 overflow-auto py-12 sm:max-w-2xl">
+    <ul className="text-white-800 body-text no-scrollbar flex flex-wrap mx-auto justify-center w-full max-w-full gap-2 overflow-auto py-12 sm:max-w-2xl">
       {links.map((link) => (
         <button
           key={link}

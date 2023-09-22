@@ -10,8 +10,9 @@ type BuildQueryParams = {
 
 type UrlQueryParams = {
   params: string;
-  key: string;
-  value: string | null;
+  key?: string;
+  value?: string | null;
+  keysToRemove?: string[];
 };
 
 export function buildQuery(params: BuildQueryParams) {
@@ -39,10 +40,19 @@ export function buildQuery(params: BuildQueryParams) {
   }
 }
 
-export function formUrlQuery({ params, key, value }: UrlQueryParams) {
+export function formUrlQuery({
+  params,
+  key,
+  value,
+  keysToRemove,
+}: UrlQueryParams) {
   const currentUrl = qs.parse(params);
 
-  currentUrl[key] = value;
+  if (keysToRemove) {
+    keysToRemove.forEach((key) => {
+      delete currentUrl[key];
+    });
+  } else if (key && value) currentUrl[key] = value;
 
   return qs.stringifyUrl(
     { url: window.location.pathname, query: currentUrl },

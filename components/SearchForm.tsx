@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 import { Input } from "@/components/ui/input";
-// import { formUrlQuery } from "@/sanity/utils";
+import { formUrlQuery } from "@/sanity/utilis";
 
 const SearchForm = () => {
   const searchParams = useSearchParams();
@@ -18,18 +18,18 @@ const SearchForm = () => {
     const delayDebounceFn = setTimeout(() => {
       let newUrl = "";
 
-      //   if (search) {
-      //     newUrl = formUrlQuery({
-      //       params: searchParams.toString(),
-      //       key: "query",
-      //       value: search,
-      //     });
-      //   } else {
-      //     newUrl = formUrlQuery({
-      //       params: searchParams.toString(),
-      //       keysToRemove: ["query"],
-      //     });
-      //   }
+      if (search) {
+        newUrl = formUrlQuery({
+          params: searchParams.toString(),
+          key: "query",
+          value: search,
+        });
+          } else {
+            newUrl = formUrlQuery({
+              params: searchParams.toString(),
+              keysToRemove: ["query"],
+        });
+      }
 
       router.push(newUrl, { scroll: false });
     }, 300);
