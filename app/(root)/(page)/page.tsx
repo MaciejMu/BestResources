@@ -6,14 +6,16 @@ import React from "react";
 
 export const revalidate = 3600;
 
-const Page = async () => {
+type PageProps = {
+  searchParams: { [key: string]: string | undefined };
+};
+
+const Page = async ({ searchParams }: PageProps) => {
   const resources = await getResources({
     query: "",
-    category: "",
+    category: searchParams?.category || "",
     page: "1",
   });
-
-  console.log(resources);
 
   return (
     <main className="flex-center paddings mx-auto w-full max-w-screen-2xl flex-col">

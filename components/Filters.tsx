@@ -3,6 +3,7 @@
 // import { formUrlQuery } from "@/sanity/utils";
 import { useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
+import { formUrlQuery } from "@/sanity/utilis";
 
 const links = ["all", "Next 13", "frontend", "backend", "fullstack"];
 
@@ -12,23 +13,26 @@ const Filters = () => {
   const router = useRouter();
 
   const handleFilter = (link: string) => {
-    let newUrl = "";
+    let newUrl;
 
     if (active === link) {
       setActive("");
-
       // newUrl = formUrlQuery({
       //   params: searchParms.toString(),
       //   keysToRemove: ["category"],
       // });
+      newUrl = formUrlQuery({
+        params: searchParms.toString(),
+        key: "category",
+        value: null,
+      });
     } else {
       setActive(link);
-
-      // newUrl = formUrlQuery({
-      //   params: searchParms.toString(),
-      //   key: "category",
-      //   value: link.toLowerCase(),
-      // });
+      newUrl = formUrlQuery({
+        params: searchParms.toString(),
+        key: "category",
+        value: link.toLowerCase(),
+      });
     }
 
     router.push(newUrl, { scroll: false });
