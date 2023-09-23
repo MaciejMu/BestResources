@@ -6,15 +6,14 @@ import Image from "next/image";
 type ResourceCardParams = {
   key: number;
   title: string;
-  id: number;
   image: string;
+  alt: string;
   resourceLink: string;
 };
-
 const ResourceCard: FC<ResourceCardParams> = ({
   title,
-  id,
   image,
+  alt,
   resourceLink,
 }) => {
   return (
@@ -27,7 +26,7 @@ const ResourceCard: FC<ResourceCardParams> = ({
               className="h-full rounded-md object-cover"
               width={384}
               height={440}
-              alt={title}
+              alt={alt}
             />
           </div>
           <CardTitle className="text-white paragraph-semibold line-clamp-1 w-full text-left">

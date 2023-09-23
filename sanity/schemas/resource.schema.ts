@@ -31,6 +31,13 @@ const schema = {
       options: { hotspot: true },
     },
     {
+      name: "alt",
+      title: "Alt Information",
+      require,
+      type: "string",
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
       name: "category",
       title: "Category",
       type: "string",
