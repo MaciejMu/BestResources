@@ -18,7 +18,7 @@ const Navbar = () => {
             My Other Projects
           </DropdownMenuTrigger>
           <DropdownMenuContent className="rounded-none bg-gray-900/90 border-indigo-500/50 p-8">
-            <DropdownMenuItem className="cursor-pointer hover:text-white-800 py-4">
+            <DropdownMenuItem className="cursor-pointer hover:text-blue-500 py-4">
               <Link
                 href={"https://portfolio-maciejmu.vercel.app/"}
                 target="_blank"
@@ -26,7 +26,7 @@ const Navbar = () => {
                 MyPortfolio
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer hover:text-white-800 py-4">
+            <DropdownMenuItem className="cursor-pointer hover:text-blue-500 py-4">
               <Link
                 href={"https://my-recipe-maciejmu.vercel.app/"}
                 target="_blank"
@@ -34,12 +34,12 @@ const Navbar = () => {
                 MyRecipe
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer hover:text-white-800 py-4">
+            <DropdownMenuItem className="cursor-pointer hover:text-blue-500 py-4">
               <Link href={"https://waiter-helper.vercel.app/"} target="_blank">
                 WaiterHelper
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer hover:text-white-800 py-4">
+            <DropdownMenuItem className="cursor-pointer hover:text-blue-500 py-4">
               <Link
                 href={"https://maciej-muter-slowko.netlify.app/"}
                 target="_blank"
