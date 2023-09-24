@@ -61,7 +61,7 @@ const Page = async ({ searchParams }: PageProps) => {
           key={item._id}
           className="flex-center mt-6 w-full flex-col sm:mt-20"
         >
-          <h3 className="heading3 self-start text-white-800">{item.title}</h3>
+          <h2 className="heading3 self-start text-white-800">{item.title}</h2>
           <div className="mt-12 flex w-full flex-wrap justify-center gap-16 sm:justify-start">
             {item.resources.map((resource: any) => (
               <ResourceCard
